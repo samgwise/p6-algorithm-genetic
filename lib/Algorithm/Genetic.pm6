@@ -1,6 +1,7 @@
 use v6;
+use Algorithm::Genetic::Selection;
 
-unit role Algorithm::Genetic;
+unit role Algorithm::Genetic does Algorithm::Genetic::Selection;
 use Algorithm::Genetic::Genotype;
 
 has Algorithm::Genetic::Genotype          @!population;
@@ -43,6 +44,3 @@ method !sort-population() {
 
 #= The termination condition for this algorithm
 method !is-finished() returns Bool { ... }
-
-#= The selection strategy for this algorithm
-method !selection-strategy() { ... }

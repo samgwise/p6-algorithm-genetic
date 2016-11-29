@@ -2,9 +2,9 @@ use v6;
 
 unit role Algorithm::Genetic::Genotype;
 
-has Rat $!score;
+has Numeric $!score;
 
-method score() returns Rat {
+method score() returns Numeric {
   $!score = self!calc-score unless $!score.defined;
   $!score;
 }
@@ -13,7 +13,7 @@ method score() returns Rat {
 # Required methods
 #
 
-method !calc-score() returns Rat { ... }
+method !calc-score() returns Numeric { ... }
 
 #
 # Default methods
