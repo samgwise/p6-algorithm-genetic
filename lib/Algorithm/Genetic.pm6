@@ -23,8 +23,8 @@ method evolve(Int :$generations = 1, Int :$size = 1) {
 
     my @pairings;
     for $parrents.rotor(2) -> $parrent {
-      @pairings.push: start {
-        if (1..1000).pick <= $!crossover-probability * 1000 {
+      # @pairings.push: start {
+        if 1000.rand <= $!crossover-probability * 1000 {
           my $children = $parrent[0].crossover($parrent[1], 1/2);
           $children>>.mutate($!mutation-probability);
 
@@ -34,10 +34,10 @@ method evolve(Int :$generations = 1, Int :$size = 1) {
             @!population.push: $c;
           }
         }
-        CATCH { warn $_ }
-      }
+        # CATCH { warn $_ }
+      # }
     }
-    await Promise.allof: @pairings;
+    # await Promise.allof: @pairings;
 
     ++$!generation;
     last if self.is-finished;

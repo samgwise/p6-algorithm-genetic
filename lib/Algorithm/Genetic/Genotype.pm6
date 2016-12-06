@@ -18,7 +18,7 @@ multi sub trait_mod:<is> (Attribute $attr, :$mutable!) is export {
 
 method mutate(Rat $probability) {
   for @mutators -> $m {
-    next unless (1...1000).pick <= $probability * 1000;
+    next unless 1000.rand <= $probability * 1000;
     $m(self);
   }
 }
