@@ -37,6 +37,9 @@ method crossover(Algorithm::Genetic::Crossoverable $other, Rat $ratio) returns L
     }
   }
 
+  $a.?re-score;
+  $b.?re-score;
+
   $a, $b;
 }
 

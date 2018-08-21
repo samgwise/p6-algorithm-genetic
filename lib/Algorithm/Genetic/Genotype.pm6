@@ -25,8 +25,14 @@ method score() returns Numeric
 #= Score this genotype instance.
 #= The score will be calculated and cached on the first call.
 {
-  $!score = self!calc-score unless $!score.defined;
-  $!score;
+    $!score = self!calc-score unless $!score.defined;
+    $!score
+}
+
+method re-score( --> Numeric) {
+    #= re-calculates the score of the genotype instance.
+    $!score = Numeric;
+    self.score;
 }
 
 multi sub trait_mod:<is> (Attribute $attr, :$mutable!) is export

@@ -109,7 +109,7 @@ Probability values are expected to be between 0 and 1.
 
 use Algorithm::Genetic::Selection;
 
-unit role Algorithm::Genetic does Algorithm::Genetic::Selection;
+unit role Algorithm::Genetic:ver<0.0.2> does Algorithm::Genetic::Selection;
 use Algorithm::Genetic::Genotype;
 
 has Algorithm::Genetic::Genotype          @!population;
